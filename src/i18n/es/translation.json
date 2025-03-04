@@ -1,0 +1,40 @@
+{
+  "nav": {
+    "about": "Sobre mí",
+    "skills": "Habilidades",
+    "projects": "Proyectos",
+    "contact": "Contacto"
+  },
+  "hero": {
+    "greeting": "¡Hola! Soy",
+    "role": "Desarrollador Full Stack & Profesor de Inglés",
+    "cta": "Contáctame"
+  },
+  "about": {
+    "title": "Sobre Mí",
+    "description": "Soy un Desarrollador Full Stack apasionado con una formación única como profesor de inglés. Mi trayectoria en tecnología está impulsada por un profundo amor por crear soluciones innovadoras y un compromiso con el aprendizaje continuo. Con experiencia en JavaScript, React ⚛️, Node.js 🟢 y SQL 📊, aporto una perfecta combinación de habilidades técnicas y capacidades de comunicación a cada proyecto.\n\nMi experiencia como profesor de inglés ha mejorado mi capacidad para explicar conceptos complejos con claridad y colaborar eficazmente en equipos. Creo en escribir código limpio y mantenible, y en crear aplicaciones amigables que resuelvan problemas reales.\n\nActualmente, estoy enfocado en construir aplicaciones web responsivas y explorar nuevas tecnologías para expandir mis habilidades. Siempre estoy ansioso por asumir nuevos desafíos y contribuir a proyectos significativos."
+  },
+  "skills": {
+    "title": "Habilidades Técnicas",
+    "frontend": "Desarrollo Frontend",
+    "backend": "Desarrollo Backend",
+    "database": "Gestión de Bases de Datos",
+    "tools": "Herramientas de Desarrollo"
+  },
+  "projects": {
+    "title": "Proyectos Destacados",
+    "coming_soon": "Emocionantes proyectos próximamente..."
+  },
+  "contact": {
+    "title": "Conectemos",
+    "name": "Nombre",
+    "email": "Correo",
+    "message": "Mensaje",
+    "send": "Enviar Mensaje",
+    "success": "¡Mensaje enviado exitosamente!",
+    "error": "Hubo un error al enviar tu mensaje. Por favor intenta de nuevo."
+  },
+  "resume": {
+    "download": "Descargar CV"
+  }
+}
