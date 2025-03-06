@@ -47,22 +47,11 @@ const Navbar = ({ currentSection, onSectionChange }) => {
             className="flex-shrink-0 cursor-pointer relative group"
             onClick={() => onSectionChange('hero')}
           >
-            <motion.div
-              className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-cyan-500 rounded-lg blur opacity-30 group-hover:opacity-100 transition duration-1000"
-              animate={{
-                scale: [1, 1.02, 1],
-                opacity: [0.3, 0.5, 0.3],
-              }}
-              transition={{
-                duration: 3,
-                repeat: Infinity,
-                repeatType: "reverse",
-              }}
-            />
+            
             <motion.img
-              src="https://res.cloudinary.com/dmas5fdhw/image/upload/v1739998056/create_logo_with_CRP_letters__relate_it_with_prog_-removebg_vkyry9.png"
+              src="https://res.cloudinary.com/dmas5fdhw/image/upload/v1741296378/newlogo_wfrtiz.png"
               alt="CRP Logo"
-              className="relative h-10 w-auto drop-shadow-[0_0_8px_rgba(59,130,246,0.5)]"
+              className="relative h-20 w-auto"
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.2 }}
             />
@@ -104,14 +93,15 @@ const Navbar = ({ currentSection, onSectionChange }) => {
                 whileHover={{ scale: 1.1 }}
                 aria-label="Toggle dark mode"
               >
-                <motion.div
+                
+                {/*<motion.div
                   className="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-cyan-500/20 rounded-full blur opacity-0 group-hover:opacity-100 transition duration-300"
                 />
                 {isDark ? (
                   <Sun className="w-5 h-5 relative z-10 text-slate-light group-hover:text-white transition-colors" />
                 ) : (
                   <Moon className="w-5 h-5 relative z-10 text-slate-light group-hover:text-white transition-colors" />
-                )}
+                )}*/}
               </motion.button>
             </div>
           </div>

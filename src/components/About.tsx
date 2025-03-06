@@ -1,10 +1,9 @@
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
-import { Github, Linkedin, Code2 } from 'lucide-react';
+import { Github, Linkedin } from 'lucide-react';
 
 const About = () => {
   const { t } = useTranslation();
-
   const socialLinks = [
     {
       icon: Github,
@@ -37,15 +36,19 @@ const About = () => {
           transition={{ duration: 0.5, delay: 0.2 }}
           className="content-section"
         >
-          <Code2 className="w-12 h-12 mx-auto mb-6 text-white" />
+          <img 
+            src="https://res.cloudinary.com/dmas5fdhw/image/upload/v1741298263/Remove_background_project_k6dlox.png" 
+            alt="Developer Icon" 
+            className="w-20 h-20 mx-auto mb-6"
+          />
           <div className="space-y-4 text-slate-light">
             {t('about.description').split('\n\n').map((paragraph, index) => (
-              <p key={index} className="text-lg leading-relaxed">
+              <p key={index} className="text-lg leading-relaxed text-center">
                 {paragraph}
               </p>
             ))}
           </div>
-          
+         
         </motion.div>
       </div>
     </section>
