@@ -76,7 +76,7 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen relative overflow-hidden">
+    <div className="min-h-screen relative">
       <div className="binary-rain" />
       {!showWelcome && <Navbar currentSection={currentSection} onSectionChange={setCurrentSection} />}
       <AnimatePresence mode="wait">
