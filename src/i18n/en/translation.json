@@ -1,0 +1,40 @@
+{
+  "nav": {
+    "about": "About",
+    "skills": "Skills",
+    "projects": "Projects",
+    "contact": "Contact"
+  },
+  "hero": {
+    "greeting": "Hello! I'm",
+    "role": "Full Stack Developer & English Teacher",
+    "cta": "Get in touch"
+  },
+  "about": {
+    "title": "About Me",
+    "description": "🚀 Full Stack Developer with an Educator's Heart\n\nI blend my experience as an English teacher with my passion for web development to create digital solutions that don't just work - they communicate.\n\n💻 Technical Stack:\n• Frontend: JavaScript, React ⚛️, HTML5, CSS3\n• Backend: Node.js 🟢, Express\n• Databases: SQL 📊, MongoDB\n\n✨ My Unique Edge: \nI translate technical complexity into clarity. My background in education enables me to communicate complex ideas precisely, lead diverse teams, and deeply understand end-user needs.\n\n🔍 My Philosophy:\nClean code. Intuitive interfaces. Solutions that solve real-world problems.\n\n🌱 Currently exploring new technologies and seeking challenging projects where my unique skill combination can make a meaningful impact.\n\nLooking for a developer who combines technical excellence with exceptional communication skills? Let's talk!"
+  },
+  "skills": {
+    "title": "Technical Skills",
+    "frontend": "Frontend Development",
+    "backend": "Backend Development",
+    "database": "Database Management",
+    "tools": "Development Tools"
+  },
+  "projects": {
+    "title": "Featured Projects",
+    "coming_soon": "Exciting projects coming soon..."
+  },
+  "contact": {
+    "title": "Let's Connect",
+    "name": "Name",
+    "email": "Email",
+    "message": "Message",
+    "send": "Send Message",
+    "success": "Message sent successfully!",
+    "error": "There was an error sending your message. Please try again."
+  },
+  "resume": {
+    "download": "Download Resume"
+  }
+}

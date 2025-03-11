@@ -1,0 +1,40 @@
+{
+  "nav": {
+    "about": "Sobre mí",
+    "skills": "Habilidades",
+    "projects": "Proyectos",
+    "contact": "Contacto"
+  },
+  "hero": {
+    "greeting": "¡Hola! Soy",
+    "role": "Desarrollador Full Stack & Profesor de Inglés",
+    "cta": "Contáctame"
+  },
+  "about": {
+    "title": "Sobre Mí",
+    "description": "🚀 Desarrollador Full Stack con el corazón de un educador\n\nFusiono mi experiencia como profesor de inglés con mi pasión por el desarrollo web para crear soluciones digitales que no solo funcionan - comunican.\n\n💻 Stack técnico:\n• Frontend: JavaScript, React ⚛️, HTML5, CSS3\n• Backend: Node.js 🟢, Express\n• Bases de datos: SQL 📊, MongoDB\n\n✨ Mi ventaja diferencial: \nTraduzco la complejidad técnica en claridad. Mi background en educación me permite comunicar ideas complejas con precisión, liderar equipos diversos y entender profundamente las necesidades de los usuarios finales.\n\n🔍 Mi filosofía:\nCódigo limpio. Interfaces intuitivas. Soluciones que resuelven problemas reales.\n\n🌱 Actualmente explorando nuevas tecnologías y buscando proyectos desafiantes donde mi combinación única de habilidades pueda generar un impacto significativo.\n\n¿Buscando un desarrollador que combine excelencia técnica con excepcionales habilidades comunicativas? ¡Conversemos!"
+  },
+  "skills": {
+    "title": "Habilidades Técnicas",
+    "frontend": "Desarrollo Frontend",
+    "backend": "Desarrollo Backend",
+    "database": "Gestión de Bases de Datos",
+    "tools": "Herramientas de Desarrollo"
+  },
+  "projects": {
+    "title": "Proyectos Destacados",
+    "coming_soon": "Emocionantes proyectos próximamente..."
+  },
+  "contact": {
+    "title": "Conectemos",
+    "name": "Nombre",
+    "email": "Correo",
+    "message": "Mensaje",
+    "send": "Enviar Mensaje",
+    "success": "¡Mensaje enviado exitosamente!",
+    "error": "Hubo un error al enviar tu mensaje. Por favor intenta de nuevo."
+  },
+  "resume": {
+    "download": "Descargar CV"
+  }
+}
