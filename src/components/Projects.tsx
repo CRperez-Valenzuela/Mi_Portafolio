@@ -14,7 +14,6 @@ const GalleryModal = ({ images, onClose, currentImageIndex, setCurrentImageIndex
   const nextImage = () => setCurrentImageIndex((prev) => (prev + 1) % images.length);
   const prevImage = () => setCurrentImageIndex((prev) => (prev - 1 + images.length) % images.length);
 
-
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -102,7 +101,7 @@ const Projects = () => {
       year: 2020,
       technologies: ["HTML5", "CSS3"],
       images: [
-        "https://res.cloudinary.com/dmas5fdhw/image/upload/v1740422930/Home_wdnrre.png",
+        "https://res.cloudinary.com/dmas5fdhw/image/upload/v1741734650/Home_recortado_Ecomm_cygvk6.png",
       ],
       liveUrl: "https://e-commerce-curso.netlify.app/",
     },
@@ -112,11 +111,11 @@ const Projects = () => {
       year: 2020,
       technologies: ["HTML5", "CSS3", "JavaScript"],
       images: [
-        "https://res.cloudinary.com/dmas5fdhw/image/upload/v1740422826/Home_flwdv0.png",
-        "https://res.cloudinary.com/dmas5fdhw/image/upload/v1740422824/Anuncios_ftlpjc.png",
-        "https://res.cloudinary.com/dmas5fdhw/image/upload/v1740422826/Nosotros_vr8qnb.png",
-        "https://res.cloudinary.com/dmas5fdhw/image/upload/v1740422824/Blog_ncv3k0.png",
-        "https://res.cloudinary.com/dmas5fdhw/image/upload/v1740422825/Contacto_sixlxd.png",
+        "https://res.cloudinary.com/dmas5fdhw/image/upload/v1741734651/Home_recortado_ticfrf.png",
+        "https://res.cloudinary.com/dmas5fdhw/image/upload/v1741735245/anuncios_recortado_bienes_jwpp3j.png",
+        "https://res.cloudinary.com/dmas5fdhw/image/upload/v1741735254/nosotros_recortado_bienes_s7chym.png",
+        "https://res.cloudinary.com/dmas5fdhw/image/upload/v1741735246/Blog_recortado_bienes_tgjkqx.png",
+        "https://res.cloudinary.com/dmas5fdhw/image/upload/v1741735250/contacto_recortado_bienes_mnrvni.png",
       ],
       liveUrl: "https://proyecto-bienes-raices-curso.netlify.app/",
     },
@@ -126,9 +125,9 @@ const Projects = () => {
       year: 2020,
       technologies: ["HTML", "CSS", "JavaScript"],
       images: [
-        "https://res.cloudinary.com/dmas5fdhw/image/upload/v1740422970/Home_ajwk6u.png",
-        "https://res.cloudinary.com/dmas5fdhw/image/upload/v1740422969/Nosotros_zp6unr.png",
-        "https://res.cloudinary.com/dmas5fdhw/image/upload/v1740422967/Contacto_zcuyiu.png",
+        "https://res.cloudinary.com/dmas5fdhw/image/upload/v1741734652/Nosotros_recortado_absbdg.png",
+        "https://res.cloudinary.com/dmas5fdhw/image/upload/v1741735248/Blog_recortado_cafe_cknicl.png",
+        "https://res.cloudinary.com/dmas5fdhw/image/upload/v1741735252/Contacto_recortado_cafe_ezvaw1.png",
       ],
       liveUrl: "https://blog-cafe-curso-practica.netlify.app/",
     },
@@ -169,6 +168,9 @@ const Projects = () => {
     };
   }, []);
 
+  // Ensure we have exactly 4 projects to match the grid layout
+  const displayedProjects = projects.slice(0, 4);
+
   return (
     <section id="projects" className="py-20 min-h-0 overflow-visible">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 overflow-visible">
@@ -182,76 +184,57 @@ const Projects = () => {
           {t('projects.title')}
         </motion.h2>
 
-        <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 overflow-visible">
-          {projects.map((project, projectIndex) => (
-            <motion.div
-              key={projectIndex}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: projectIndex * 0.1 }}
-              className="overflow-visible"
-            >
-              <div className="bg-navy/30 backdrop-blur-sm rounded-lg p-6 shadow-xl h-full flex flex-col">
-                <div className="flex justify-between items-start mb-4">
-                  <h3 className="text-2xl font-bold text-white">{project.title}</h3>
-                  <div className="flex space-x-4">
-                    {project.githubUrl && (
-                      <a
-                        href={project.githubUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-slate-light hover:text-white transition-colors"
-                      >
-                        <Github className="w-6 h-6" />
-                      </a>
-                    )}
-                    <a
-                      href={project.liveUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-slate-light hover:text-white transition-colors"
-                    >
-                      <ExternalLink className="w-6 h-6" />
-                    </a>
-                  </div>
-                </div>
+        <div className="mt-12 overflow-visible">
+          {/* Para pantallas móviles, mostramos los proyectos en una sola columna */}
+          <div className="lg:hidden flex flex-col gap-6">
+            {displayedProjects.map((project, projectIndex) => (
+              <ProjectCard 
+                key={projectIndex} 
+                project={project} 
+                projectIndex={projectIndex} 
+                openGallery={openGallery} 
+              />
+            ))}
+          </div>
 
-                <p className="text-slate-light mb-4">{project.description}</p>
-                
-                <div className="flex flex-wrap gap-2 mb-6">
-                  {project.technologies.map((tech, i) => (
-                    <span
-                      key={i}
-                      className="px-3 py-1 bg-navy-light rounded-full text-sm text-slate-light"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-
-                <div className="mt-auto">
-                  <div 
-                    className="relative cursor-pointer group"
-                    onClick={() => openGallery(projectIndex, 0)}
-                  >
-                    <img
-                      src={project.images[0]}
-                      alt={`${project.title} screenshot 1`}
-                      className="rounded-lg shadow-md w-full transition-transform group-hover:scale-[1.01]"
-                    />
-                    {project.images.length > 1 && (
-                      <div className="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity rounded-lg">
-                        <p className="text-white text-lg font-medium">
-                          View Gallery ({project.images.length} images)
-                        </p>
-                      </div>
-                    )}
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-          ))}
+          {/* Para pantallas grandes, usamos la nueva configuración de grid */}
+          <div className="hidden lg:grid lg:grid-cols-12 lg:grid-rows-8 lg:gap-8 lg:h-[1600px]">
+            {/* Proyecto 1: col-span-6 row-span-3 */}
+            <div className="col-span-6 row-span-3">
+              <ProjectCard 
+                project={displayedProjects[0]} 
+                projectIndex={0} 
+                openGallery={openGallery} 
+              />
+            </div>
+            
+            {/* Proyecto 2: col-span-6 row-span-5 col-start-1 row-start-4 */}
+            <div className="col-span-6 row-span-5 col-start-1 row-start-4">
+              <ProjectCard 
+                project={displayedProjects[1]} 
+                projectIndex={1} 
+                openGallery={openGallery} 
+              />
+            </div>
+            
+            {/* Proyecto 3: col-span-6 row-span-5 col-start-7 row-start-1 */}
+            <div className="col-span-6 row-span-5 col-start-7 row-start-1">
+              <ProjectCard 
+                project={displayedProjects[2]} 
+                projectIndex={2} 
+                openGallery={openGallery} 
+              />
+            </div>
+            
+            {/* Proyecto 4: col-span-6 row-span-3 col-start-7 row-start-6 */}
+            <div className="col-span-6 row-span-3 col-start-7 row-start-6">
+              <ProjectCard 
+                project={displayedProjects[3]} 
+                projectIndex={3} 
+                openGallery={openGallery} 
+              />
+            </div>
+          </div>
         </div>
       </div>
 
@@ -266,6 +249,76 @@ const Projects = () => {
         )}
       </AnimatePresence>
     </section>
+  );
+};
+
+// Componente de tarjeta de proyecto extraído para reutilización
+const ProjectCard = ({ project, projectIndex, openGallery }) => {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5, delay: projectIndex * 0.1 }}
+      className="bg-navy/30 backdrop-blur-sm rounded-lg p-6 shadow-xl h-full flex flex-col"
+    >
+      <div className="flex justify-between items-start mb-4">
+        <h3 className="text-2xl font-bold text-white">{project.title}</h3>
+        <div className="flex space-x-4">
+          {project.githubUrl && (
+            <a
+              href={project.githubUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-slate-light hover:text-white transition-colors"
+            >
+              <Github className="w-6 h-6" />
+            </a>
+          )}
+          <a
+            href={project.liveUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-slate-light hover:text-white transition-colors"
+          >
+            <ExternalLink className="w-6 h-6" />
+          </a>
+        </div>
+      </div>
+
+      <p className="text-slate-light mb-4">{project.description}</p>
+      
+      <div className="flex flex-wrap gap-2 mb-6">
+        {project.technologies.map((tech, i) => (
+          <span
+            key={i}
+            className="px-3 py-1 bg-navy-light rounded-full text-sm text-slate-light"
+          >
+            {tech}
+          </span>
+        ))}
+      </div>
+
+      <div className="mt-auto">
+        <div 
+          className="relative cursor-pointer group"
+          onClick={() => openGallery(projectIndex, 0)}
+        >
+          <img
+            src={project.images[0]}
+            alt={`${project.title} screenshot 1`}
+            className="rounded-lg shadow-md w-full transition-transform group-hover:scale-[1.01]"
+          />
+          {project.images.length > 1 && (
+            <div className="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity rounded-lg">
+              <p className="text-white text-lg font-medium">
+                View Gallery ({project.images.length} images)
+              </p>
+            </div>
+          )}
+        </div>
+      </div>
+    </motion.div>
   );
 };
 
