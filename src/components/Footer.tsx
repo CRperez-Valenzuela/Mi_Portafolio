@@ -1,12 +1,37 @@
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 import { FileDown, Github, Linkedin } from 'lucide-react';
+import { useCallback } from 'react';
 
 const Footer = () => {
   const { t, i18n } = useTranslation();
   const resumeUrl = i18n.language === 'es'
     ? 'https://res.cloudinary.com/dmas5fdhw/image/upload/v1737931066/CV_Ciro_P%C3%A9rez_Desarrollador_-_Full_stack_x5f5ho.pdf'
     : 'https://res.cloudinary.com/dmas5fdhw/image/upload/v1737931065/CV_Ciro_P%C3%A9rez_Full_Stack_Developer_himz8l.pdf';
+  
+  const fileName = i18n.language === 'es' 
+    ? 'CV_Ciro_Pérez_Desarrollador_Full_Stack.pdf' 
+    : 'CV_Ciro_Pérez_Full_Stack_Developer.pdf';
+  
+  // Función para descargar el CV
+  const handleDownloadCV = useCallback((e) => {
+    e.preventDefault();
+    
+    // Creamos un elemento <a> temporal
+    const link = document.createElement('a');
+    link.href = resumeUrl;
+    link.setAttribute('download', fileName);
+    link.setAttribute('target', '_blank');
+    
+    // Añadimos el elemento al DOM
+    document.body.appendChild(link);
+    
+    // Simulamos un clic
+    link.click();
+    
+    // Eliminamos el elemento
+    document.body.removeChild(link);
+  }, [resumeUrl, fileName]);
   
   const techStack = [
     {
@@ -68,7 +93,7 @@ const Footer = () => {
                 <motion.img
                   src={tech.icon}
                   alt={tech.name}
-                  className="w-6 h-6 md:w-8 md:h-8" // Más pequeño en móviles
+                  className="w-6 h-6 md:w-8 md:h-8"
                 />
                 {/* Tooltip con el nombre de la tecnología */}
                 <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-black text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
@@ -88,19 +113,17 @@ const Footer = () => {
                 whileHover={{ scale: 1.1 }}
                 aria-label={label}
               >
-                <Icon className="w-5 h-5 md:w-6 md:h-6" /> {/* Más pequeño en móviles */}
+                <Icon className="w-5 h-5 md:w-6 md:h-6" />
               </motion.a>
             ))}
-            <motion.a
-              href={resumeUrl}
-              target="_blank"
-              rel="noopener noreferrer"
+            <motion.button
+              onClick={handleDownloadCV}
               className="flex items-center space-x-1 md:space-x-2 bg-white/10 text-white px-3 md:px-4 py-1 md:py-2 rounded-full hover:bg-white/20 transition-colors text-xs md:text-sm"
               whileHover={{ scale: 1.05 }}
             >
               <FileDown className="w-3 h-3 md:w-4 md:h-4" />
               <span>{t('resume.download')}</span>
-            </motion.a>
+            </motion.button>
           </div>
         </div>
       </div>

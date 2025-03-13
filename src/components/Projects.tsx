@@ -95,7 +95,7 @@ const Projects = () => {
       liveUrl: "https://countries-explorer-git.netlify.app/",
       githubUrl: "https://github.com/CRperez-Valenzuela/Countries-Explorer",
     },
-    {
+      {
       title: "E-commerce Website (Applying the basics)",
       description: "My first website, built using only HTML5 and CSS3. This was my initial attempt at implementing CSS Grid while applying fundamental web development principles.",
       year: 2020,

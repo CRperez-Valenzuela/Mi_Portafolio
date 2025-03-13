@@ -152,6 +152,25 @@ const Navbar = ({ currentSection, onSectionChange }) => {
                 {item.label}
               </motion.button>
             ))}
+            
+            {/* Botón de cambio de idioma en móvil */}
+            <motion.button
+              onClick={() => {
+                toggleLanguage();
+                setIsOpen(false);
+              }}
+              className="relative group w-full flex items-center px-4 py-2 text-sm font-medium text-slate-light hover:text-white transition-colors"
+              whileHover={{ scale: 1.02 }}
+              aria-label="Toggle language"
+            >
+              <motion.div
+                className="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-cyan-500/20 rounded-lg blur opacity-0 group-hover:opacity-100 transition duration-300"
+              />
+              <Globe className="w-5 h-5 mr-2 relative z-10" />
+              <span className="relative z-10">
+                {i18n.language === 'en' ? 'Español' : 'English'}
+              </span>
+            </motion.button>
           </div>
         </motion.div>
       )}
