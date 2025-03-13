@@ -18,7 +18,7 @@ const About = () => {
   ];
 
   return (
-    <section id="about" className="py-20">
+    <section id="about" className="py-20 mb-16"> {/* Añadido mb-16 para separar del footer */}
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
@@ -36,9 +36,9 @@ const About = () => {
           transition={{ duration: 0.5, delay: 0.2 }}
           className="content-section"
         >
-          <img 
-            src="https://res.cloudinary.com/dmas5fdhw/image/upload/v1741298263/Remove_background_project_k6dlox.png" 
-            alt="Developer Icon" 
+          <img
+            src="https://res.cloudinary.com/dmas5fdhw/image/upload/v1741298263/Remove_background_project_k6dlox.png"
+            alt="Developer Icon"
             className="w-20 h-20 mx-auto mb-6"
           />
           <div className="space-y-4 text-slate-light">
@@ -48,7 +48,6 @@ const About = () => {
               </p>
             ))}
           </div>
-         
         </motion.div>
       </div>
     </section>
