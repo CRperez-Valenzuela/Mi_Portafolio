@@ -4,11 +4,10 @@ import { FileDown, Github, Linkedin } from 'lucide-react';
 
 const Footer = () => {
   const { t, i18n } = useTranslation();
-
   const resumeUrl = i18n.language === 'es'
     ? 'https://res.cloudinary.com/dmas5fdhw/image/upload/v1737931066/CV_Ciro_P%C3%A9rez_Desarrollador_-_Full_stack_x5f5ho.pdf'
     : 'https://res.cloudinary.com/dmas5fdhw/image/upload/v1737931065/CV_Ciro_P%C3%A9rez_Full_Stack_Developer_himz8l.pdf';
-
+  
   const techStack = [
     {
       name: 'React',
@@ -41,7 +40,7 @@ const Footer = () => {
       color: '#FF0055'
     }
   ];
-
+  
   const socialLinks = [
     {
       icon: Github,
@@ -54,12 +53,12 @@ const Footer = () => {
       label: 'LinkedIn'
     }
   ];
-
+  
   return (
-    <footer className="fixed bottom-0 w-full py-4 bg-black/20 backdrop-blur-sm">
+    <footer className="fixed bottom-0 w-full py-4 bg-black/20 backdrop-blur-sm z-30">
       <div className="max-w-6xl mx-auto px-4">
         <div className="flex flex-col md:flex-row items-center justify-between">
-          <div className="flex space-x-6 mb-4 md:mb-0">
+          <div className="flex space-x-3 md:space-x-6 mb-4 md:mb-0">
             {techStack.map((tech) => (
               <motion.div
                 key={tech.name}
@@ -69,13 +68,16 @@ const Footer = () => {
                 <motion.img
                   src={tech.icon}
                   alt={tech.name}
-                  className="w-8 h-8"
+                  className="w-6 h-6 md:w-8 md:h-8" // Más pequeño en móviles
                 />
+                {/* Tooltip con el nombre de la tecnología */}
+                <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-2 py-1 bg-black text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
+                  {tech.name}
+                </div>
               </motion.div>
             ))}
           </div>
-
-          <div className="flex items-center space-x-4">
+          <div className="flex items-center space-x-3 md:space-x-4">
             {socialLinks.map(({ icon: Icon, url, label }) => (
               <motion.a
                 key={label}
@@ -86,17 +88,17 @@ const Footer = () => {
                 whileHover={{ scale: 1.1 }}
                 aria-label={label}
               >
-                <Icon className="w-6 h-6" />
+                <Icon className="w-5 h-5 md:w-6 md:h-6" /> {/* Más pequeño en móviles */}
               </motion.a>
             ))}
             <motion.a
               href={resumeUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center space-x-2 bg-white/10 text-white px-4 py-2 rounded-full hover:bg-white/20 transition-colors"
+              className="flex items-center space-x-1 md:space-x-2 bg-white/10 text-white px-3 md:px-4 py-1 md:py-2 rounded-full hover:bg-white/20 transition-colors text-xs md:text-sm"
               whileHover={{ scale: 1.05 }}
             >
-              <FileDown className="w-4 h-4" />
+              <FileDown className="w-3 h-3 md:w-4 md:h-4" />
               <span>{t('resume.download')}</span>
             </motion.a>
           </div>
