@@ -22,9 +22,21 @@
     "tools": "Herramientas de Desarrollo"
   },
   "projects": {
-    "title": "Proyectos Destacados",
-    "coming_soon": "Emocionantes proyectos próximamente..."
-  },
+    "title": "Proyectos",
+    "viewGallery": "Ver Galería ({{count}} imágenes)",
+    "countriesExplorer": {
+      "description": "Una aplicación web moderna que permite a los usuarios explorar información sobre diferentes países. Construida con React y TypeScript, con filtrado dinámico, funcionalidad de búsqueda e información detallada de países."
+    },
+    "ecommerce": {
+      "description": "Mi primer sitio web, construido utilizando solo HTML5 y CSS3. Este fue mi intento inicial de implementar CSS Grid mientras aplicaba principios fundamentales de desarrollo web."
+    },
+    "realEstate": {
+      "description": "Una plataforma inmobiliaria que muestra propiedades con información detallada. En ese momento, no tenía conocimiento de media queries o diseño responsivo."
+    },
+    "coffeeBlog": {
+      "description": "Un blog informativo sobre la cultura del café y técnicas de preparación."
+    }
+    },
   "contact": {
     "title": "Conectemos",
     "name": "Nombre",

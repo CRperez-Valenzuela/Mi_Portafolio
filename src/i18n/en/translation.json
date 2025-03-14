@@ -22,10 +22,22 @@
     "tools": "Development Tools"
   },
   "projects": {
-    "title": "Featured Projects",
-    "coming_soon": "Exciting projects coming soon..."
+  "title": "Projects",
+    "viewGallery": "View Gallery ({{count}} images)",
+    "countriesExplorer": {
+      "description": "A modern web application that allows users to explore information about different countries. Built with React and TypeScript, featuring dynamic filtering, search functionality, and detailed country information."
+    },
+    "ecommerce": {
+      "description": "My first website, built using only HTML5 and CSS3. This was my initial attempt at implementing CSS Grid while applying fundamental web development principles."
+    },
+    "realEstate": {
+      "description": "A real estate platform showcasing properties with detailed information. At the time, I had no knowledge of media queries or responsive design."
+    },
+    "coffeeBlog": {
+      "description": "An informative blog about coffee culture and brewing techniques."
+    }
   },
-  "contact": {
+    "contact": {
     "title": "Let's Connect",
     "name": "Name",
     "email": "Email",
