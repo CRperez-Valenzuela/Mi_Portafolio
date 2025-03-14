@@ -38,8 +38,11 @@
     }
     },
   "contact": {
+    "copyEmail": "Copiar correo",
+    "copied":  "¡Copiado!",
     "title": "Conectemos",
     "name": "Nombre",
+    "subject": "Asunto",
     "email": "Correo",
     "message": "Mensaje",
     "send": "Enviar Mensaje",

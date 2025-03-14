@@ -38,8 +38,11 @@
     }
   },
     "contact": {
+    "copyEmail": "Copy email",
+    "copied":  "Copied!",
     "title": "Let's Connect",
     "name": "Name",
+    "subject": "Subject",
     "email": "Email",
     "message": "Message",
     "send": "Send Message",

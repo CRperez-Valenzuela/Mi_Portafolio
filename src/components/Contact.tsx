@@ -2,12 +2,14 @@ import { useState, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 import emailjs from '@emailjs/browser';
-import { Send, CheckCircle, XCircle } from 'lucide-react';
+import { Send, CheckCircle, XCircle, Copy, Mail, Check } from 'lucide-react';
 
 const Contact = () => {
   const { t } = useTranslation();
   const formRef = useRef<HTMLFormElement>(null);
   const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
+  const [copied, setCopied] = useState(false);
+  const email = "devopsciroperez@gmail.com";
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -29,6 +31,13 @@ const Contact = () => {
     }
   };
 
+  const copyEmail = () => {
+    navigator.clipboard.writeText(email).then(() => {
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    });
+  };
+
   return (
     <section id="contact" className="py-20">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -41,6 +50,36 @@ const Contact = () => {
         >
           {t('contact.title')}
         </motion.h2>
+        
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+          className="mb-8 bg-white/5 rounded-lg p-4 backdrop-blur-sm flex flex-col md:flex-row items-center justify-between"
+        >
+          <div className="flex items-center mb-4 md:mb-0">
+            <Mail className="w-5 h-5 mr-2 text-blue-500" />
+            <span className="text-sm md:text-base">{email}</span>
+          </div>
+          <button
+            onClick={copyEmail}
+            className="bg-blue-600 text-white px-4 py-2 rounded-md text-sm flex items-center hover:bg-blue-700 transition-colors"
+          >
+            {copied ? (
+              <>
+                <Check className="w-4 h-4 mr-2" />
+                {t('contact.copied')}
+              </>
+            ) : (
+              <>
+                <Copy className="w-4 h-4 mr-2" />
+                {t('contact.copyEmail')}
+              </>
+            )}
+          </button>
+        </motion.div>
+
         <motion.form
           ref={formRef}
           onSubmit={handleSubmit}
@@ -70,6 +109,18 @@ const Contact = () => {
               type="email"
               id="from_email"
               name="from_email"
+              required
+              className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-navy focus:border-transparent dark:bg-navy-light dark:border-navy-light"
+            />
+          </div>
+          <div>
+            <label htmlFor="subject" className="block text-sm font-medium mb-2">
+              {t('contact.subject')}
+            </label>
+            <input
+              type="text"
+              id="subject"
+              name="subject"
               required
               className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-navy focus:border-transparent dark:bg-navy-light dark:border-navy-light"
             />

@@ -14,6 +14,12 @@ function App() {
   const [currentSection, setCurrentSection] = useState('welcome');
   const [showWelcome, setShowWelcome] = useState(true);
 
+  const onSectionChange = (section) => {
+    setCurrentSection(section);
+    // Opcional: desplazamiento suave
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowWelcome(false);
@@ -26,7 +32,7 @@ function App() {
   const welcomeText = "¡BIENVENIDO!";
   const letterVariants = {
     initial: { opacity: 0, y: 20 },
-    animate: (i: number) => ({
+    animate: (i) => ({
       opacity: 1,
       y: 0,
       transition: {
@@ -41,38 +47,41 @@ function App() {
       },
     },
   };
-
+  
   const sections = {
     welcome: (
-      <motion.div 
+      <motion.div
         className="h-screen flex items-center justify-center"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
         transition={{ duration: 0.5 }}
       >
-        <div className="text-center">
-          {welcomeText.split('').map((char, index) => (
-            <motion.span
-              key={index}
-              custom={index}
-              variants={letterVariants}
-              initial="initial"
-              animate="animate"
-              exit="exit"
-              className="text-6xl md:text-8xl font-bold text-white inline-block"
-            >
-              {char}
-            </motion.span>
-          ))}
+        <div className="text-center max-w-full px-4">
+          <div className="flex flex-wrap justify-center">
+            {welcomeText.split('').map((char, index) => (
+              <motion.span
+                key={index}
+                custom={index}
+                variants={letterVariants}
+                initial="initial"
+                animate="animate"
+                exit="exit"
+                className="text-4xl sm:text-6xl md:text-8xl font-bold text-white"
+              >
+                {char}
+              </motion.span>
+            ))}
+          </div>
         </div>
       </motion.div>
     ),
-    hero: <Hero />,
+    hero: <Hero onSectionChange={onSectionChange} />,
+    contact: <Contact />,
     about: <About />,
     skills: <Skills />,
     projects: <Projects />,
-    contact: <Contact />
+    
   };
 
   return (
